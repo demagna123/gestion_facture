@@ -20,6 +20,7 @@ class ClientController extends Controller
     public function create()
     {
         //
+        return view('clients.create');
     }
 
     /**
@@ -28,6 +29,15 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nom'=>'required|string|min:3',
+            'email'=>'required|string|min:7',
+            'telephone' => 'required|string|regex:/^[0-9]{8,15}$/',
+            'adresse'=>'required|string|min:5'
+        ]);
+        Client::create($request->only(['nom', 'email', 'telephone', 'adresse']));
+
+        return redirect()->back()->with('success', 'Client ajouté avec succès');
     }
 
     /**
