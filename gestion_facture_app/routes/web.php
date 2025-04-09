@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\http\Controllers\ArticleController;
-use app\http\Controllers\FactureController;
+use App\http\Controllers\ArticleController;
+use App\http\Controllers\FactureController;
 
 Route::get('/', function () {
     return view('welcome');

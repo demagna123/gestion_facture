@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulaire de création d'article</title>
+  <link rel="stylesheet" href="{{ asset('assets/css/create.css') }}">
 </head>
 <body>
 
   <h2>Création d'Article</h2>
-  <form action="#" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
     <label for="titre">Titre de l'article:</label>
     <input type="text" id="titre" name="titre" required>
 
