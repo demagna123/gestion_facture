@@ -11,7 +11,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        // //
+        // $clients = Client::all();
+        // return view('clients.index',compact('clients'));
     }
 
     /**
@@ -20,6 +22,7 @@ class CategorieController extends Controller
     public function create()
     {
         //
+        return view('categories.create');
     }
 
     /**
@@ -28,6 +31,18 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'description' => 'required|string'
+           
+        ]);
+        Client::create([
+            'nom'=>$request->nom,
+            'description'=>$request->description,
+
+        ]);
+        return redirect()->route('categories.index')
+        ->with('success', 'Categorie créé avec succès');
     }
 
     /**
