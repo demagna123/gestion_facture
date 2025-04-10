@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ArticleController;
 use App\http\Controllers\FactureController;
+use App\http\Controllers\ClientController;
 
 Route::get('/', function () {
     return view('welcome');

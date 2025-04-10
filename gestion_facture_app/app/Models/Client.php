@@ -11,6 +11,7 @@ class Client extends Model
         'nom',
         'email',
         'telephone',
-        'adresse'
+        'adresse',
+        'image'
     ];
 }

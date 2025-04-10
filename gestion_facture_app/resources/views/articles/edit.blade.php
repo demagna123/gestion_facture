@@ -11,7 +11,7 @@
   <h2>Création d'Article</h2>
   <form action="{{ route('articles.update', $article->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('PUT') <!-- Important pour les mises à jour -->
+    @method('PUT') 
 
     <label for="titre">Titre de l'article:</label>
     <input type="text" id="titre" name="titre" value="{{ $article->titre }}" required>

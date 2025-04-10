@@ -16,7 +16,10 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('email');
+            $table->string('telephone');
             $table->string('adresse');
+            $table->string('image')->nullable();
+            $table->timestamps();
 
         });
     }

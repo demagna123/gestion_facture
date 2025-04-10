@@ -8,7 +8,8 @@
 <body>
 
   <h2>Création de Client</h2>
-  <form action="#" method="POST">
+  <form action="{{ route('clients.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
     <label for="nom">Nom Complet:</label>
     <input type="text" id="nom" name="nom" required>
 
@@ -20,6 +21,9 @@
 
     <label for="adresse">Adresse:</label>
     <input type="text" id="adresse" name="adresse" required>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" required>
 
     <button type="submit">Créer Client</button>
   </form>
