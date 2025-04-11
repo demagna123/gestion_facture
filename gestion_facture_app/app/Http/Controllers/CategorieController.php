@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categorie;
 
 class CategorieController extends Controller
 {
@@ -11,9 +12,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        // //
-        // $clients = Client::all();
-        // return view('clients.index',compact('clients'));
+        //
+        $categories = Categorie::all();
+        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -36,9 +37,9 @@ class CategorieController extends Controller
             'description' => 'required|string'
            
         ]);
-        Client::create([
+        Categorie::create([
             'nom'=>$request->nom,
-            'description'=>$request->description,
+            'description'=>$request->description
 
         ]);
         return redirect()->route('categories.index')
@@ -51,6 +52,8 @@ class CategorieController extends Controller
     public function show(string $id)
     {
         //
+        $categorie = Categorie::findOrfail($id);
+        return view('categories.show',compact('categorie'));
     }
 
     /**
@@ -59,6 +62,8 @@ class CategorieController extends Controller
     public function edit(string $id)
     {
         //
+        $categorie = Categorie::findOrfail($id);
+        return view('categories.edit', compact('categorie'));
     }
 
     /**
@@ -67,6 +72,10 @@ class CategorieController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $categorie = Categorie::findOrfail($id);
+        $categorie->update($request->all());
+        return redirect()->route('categories.index');
+
     }
 
     /**
@@ -75,5 +84,10 @@ class CategorieController extends Controller
     public function destroy(string $id)
     {
         //
+        $categorie = Categorie::findOrfail($id);
+        $categorie->delete();
+        return redirect()->route('categories.index');
     }
 }
+
+

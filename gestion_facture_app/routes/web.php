@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\ArticleController;
-use App\http\Controllers\FactureController;
-use App\http\Controllers\ClientController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\FactureController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CategorieController;
 
 Route::get('/', function () {
     return view('welcome');

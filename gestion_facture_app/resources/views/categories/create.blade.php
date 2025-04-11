@@ -8,7 +8,8 @@
 <body>
 
   <h2>Création de Catégorie</h2>
-  <form action="#" method="POST">
+  <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
     <label for="nom">Nom de la catégorie:</label>
     <input type="text" id="nom" name="nom" required>
 
